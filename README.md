@@ -1,4 +1,4 @@
-# SunSeek — Team Jenny 🛰️
+# SunSeek — Team SuperTEM🛰️
 
 A single-axis training satellite that **turns itself to any target angle with a reaction wheel and takes a photo**.
 This repository holds our firmware, our ground station, and the full engineering story of how we found and fixed the "wobble forever" problem.
