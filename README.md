@@ -9,7 +9,7 @@ This repository holds our firmware, our ground station, and the full engineering
 | **Sensors** | GY-89 board: LSM303D magnetometer/accelerometer, L3GD20 gyroscope, BMP180; 2 sun-sensor photodiodes |
 | **Actuator** | DC-motor reaction wheel through a TB6612 motor driver |
 | **Payload** | AI-Thinker ESP32-CAM (OV2640 + microSD), linked to the satellite by UART, serves photos over its own Wi-Fi |
-| **Ground station** | Our own web ground station (Bluetooth commands + telemetry, debug reports) |
+| **Ground station** | Our Python ground station (`ground_station/`, BLE/USB + simulator + PD tuner) and a browser ground station used for the hardware debug reports |
 
 ---
 
@@ -39,7 +39,7 @@ firmware/
   SunSeek_Platform_Firmware_v3_1_TeamJenny_OURS/   <- our first version (kept for comparison)
   SunSeek_Platform_Firmware_v3_0_7_ORIGINAL_instructors/  <- original firmware we started from
   SunSeek_ESP32CAM_Payload_Firmware_v3_0/          <- camera payload firmware (our fixes inside)
-ground_station/       <- our own web ground station
+ground_station/       <- our Python ground station (Ground Station Lite)
 docs/
   ENGINEERING_LOG.md                  <- what we did, step by step, and why
   TECHNIQUES.md                       <- every technique we used, explained
