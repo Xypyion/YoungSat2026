@@ -1,5 +1,5 @@
-/* *** TEAM JENNY — OUR VERSION v3.1 (based on official SunSeek v3.0.7) ***
-   See README_OURS_TeamJenny.md for what we changed.
+/* *** TEAM SUPERTEM — OUR VERSION v3.1 (based on official SunSeek v3.0.7) ***
+   See README_OURS_TeamSuperTem.md for what we changed.
    SunSeek Platform Firmware v3.0
    Reorganized training architecture: Config / Module / System.
    Runtime baseline: T07 FIX6 Estimator Continuous + MA500. */
@@ -27,7 +27,7 @@ void setup(){
   adcsBegin();
   payloadUARTBegin();
   communicationBegin(processTelecommand);
-  Serial.println("SUNSEEK PLATFORM v3.2-TeamJenny (OUR VERSION, based on official v3.0.7)");
+  Serial.println("SUNSEEK PLATFORM v3.2-TeamSuperTem (OUR VERSION, based on official v3.0.7)");
   Serial.println("Spacecraft ID: "+getSpacecraftID());
   Serial.println("Payload UART: TX=GPIO41 RX=GPIO42 @115200");
   sensorSendHealth();

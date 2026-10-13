@@ -21,7 +21,7 @@ Replies: `ACK,…` · `ERR,…` · `EVT,…` · `TM,KEY,VALUE,…` · `PAYLOAD,�
 | `ADCS_TUNE,<Kp>,<Kd>,<bias>` | gains, e.g. `ADCS_TUNE,2.5,1.2,40` |
 | `SET_TARGET,<deg>` | MAG: any value, wrapped to 0–360 (−30 = 330); SUN: −90…90 |
 
-## Team Jenny controller commands (v3.1 / v3.2)
+## Team SuperTem controller commands (v3.1 / v3.2)
 These work in MANUAL or AUTO unless noted, and are **lost on reboot**. Put final values in `Config_ADCS.h` to keep them.
 
 | Command | Default | What it does |

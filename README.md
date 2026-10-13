@@ -5,7 +5,7 @@ This repository holds our firmware, our ground station, and the full engineering
 
 | | |
 |---|---|
-| **Satellite computer** | ESP32-S3 (Arduino, ESP32 core 3.x), Bluetooth name `SUNSEEK-Team_Jenny` |
+| **Satellite computer** | ESP32-S3 (Arduino, ESP32 core 3.x), Bluetooth name `SUNSEEK-Team_SuperTem` |
 | **Sensors** | GY-89 board: LSM303D magnetometer/accelerometer, L3GD20 gyroscope, BMP180; 2 sun-sensor photodiodes |
 | **Actuator** | DC-motor reaction wheel through a TB6612 motor driver |
 | **Payload** | AI-Thinker ESP32-CAM (OV2640 + microSD), linked to the satellite by UART, serves photos over its own Wi-Fi |
@@ -35,8 +35,8 @@ The full story, including the ideas that turned out wrong, is in **[docs/ENGINEE
 
 ```
 firmware/
-  SunSeek_Platform_Firmware_v3_2_TeamJenny_OURS/   <- USE THIS ONE (working, calibrated)
-  SunSeek_Platform_Firmware_v3_1_TeamJenny_OURS/   <- our first version (kept for comparison)
+  SunSeek_Platform_Firmware_v3_2_TeamSuperTem_OURS/   <- USE THIS ONE (working, calibrated)
+  SunSeek_Platform_Firmware_v3_1_TeamSuperTem_OURS/   <- our first version (kept for comparison)
   SunSeek_Platform_Firmware_v3_0_7_ORIGINAL_instructors/  <- original firmware we started from
   SunSeek_ESP32CAM_Payload_Firmware_v3_0/          <- camera payload firmware (our fixes inside)
 ground_station/       <- our Python ground station (Ground Station Lite)
@@ -86,7 +86,7 @@ tools/                <- small Python tools we wrote for the analysis
 
 1. **Wire it.** Satellite GPIO41 → camera U0R, GPIO42 ← camera U0T, common GND. Take the ESP32-CAM off its USB programmer board.
 2. **Upload the camera firmware.** In `SunSeek_ESP32CAM_Payload_Firmware_v3_0/Config_Payload.h`, set your own Wi-Fi password, then upload with board **AI Thinker ESP32-CAM**.
-3. **Upload the satellite firmware.** Upload `firmware/SunSeek_Platform_Firmware_v3_2_TeamJenny_OURS` with board **ESP32S3 Dev Module**, and keep the satellite still while it boots (gyro auto-zero).
+3. **Upload the satellite firmware.** Upload `firmware/SunSeek_Platform_Firmware_v3_2_TeamSuperTem_OURS` with board **ESP32S3 Dev Module**, and keep the satellite still while it boots (gyro auto-zero).
 4. **Calibrate in the room where you'll run.** Connect the ground station and follow [docs/CALIBRATION.md](docs/CALIBRATION.md).
 5. **Point it.**
    ```
@@ -101,10 +101,10 @@ tools/                <- small Python tools we wrote for the analysis
 
 Compile check from the command line:
 ```
-arduino-cli compile --fqbn esp32:esp32:esp32s3 firmware/SunSeek_Platform_Firmware_v3_2_TeamJenny_OURS
+arduino-cli compile --fqbn esp32:esp32:esp32s3 firmware/SunSeek_Platform_Firmware_v3_2_TeamSuperTem_OURS
 arduino-cli compile --fqbn esp32:esp32:esp32cam firmware/SunSeek_ESP32CAM_Payload_Firmware_v3_0
 ```
 
 ## Credits
 
-The original SunSeek platform firmware (v3.0.7), the camera firmware base and the course ground station come from the course instructors (MUT Education Satellite program). Everything marked **TEAM JENNY / OURS** in the code, plus the docs and tools here, is our team's work.
+The original SunSeek platform firmware (v3.0.7), the camera firmware base and the course ground station come from the course instructors (MUT Education Satellite program). Everything marked **TEAM SUPERTEM / OURS** in the code, plus the docs and tools here, is our team's work.

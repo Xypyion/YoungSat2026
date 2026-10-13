@@ -5,15 +5,15 @@ Context for continuing this project in another chat. Last updated 2026-10-08.
 ## What this is
 A single-axis training satellite ("SunSeek") with a reaction wheel, controlled from a Windows ground station over Bluetooth, plus an ESP32-CAM camera payload.
 
-- **Satellite board:** ESP32-S3 Dev Module (Arduino IDE, ESP32 core 3.1.1). Bluetooth name **`SUNSEEK-Team_Jenny`**.
+- **Satellite board:** ESP32-S3 Dev Module (Arduino IDE, ESP32 core 3.1.1). Bluetooth name **`SUNSEEK-Team_SuperTem`**.
 - **Camera:** AI Thinker ESP32-CAM, joined to the satellite by a UART wire. It runs its own Wi-Fi network: **`iLoveJenny`**, password (set in `Config_Payload.h`), address **`192.168.4.1`**.
 - **Ground Station:** `MUT_Education_Satellite_Ground_Station_v1.10` (a compiled PyInstaller exe, Python 3.13 + PySide6 + bleak; no source). It runs on a **separate laptop** connected to the camera's Wi-Fi.
 
 ## Folders (current = bold)
 | Folder | What |
 |---|---|
-| **`SunSeek_Platform_Firmware_v3_2_TeamJenny_OURS/`** | **OUR NEWEST — WORKS ON HARDWARE (2026-10-08).** v3.1 + wheel-model controller (ADCS_CTRL_MODE,WHEEL), max cmd 45, **ADCS_CONTROL_SIGN -1 (this was the real wobble cause: with +1 it parked 180 deg from target and chattered)**. Live flip: ADCS_CONTROL_SIGN,<1/-1>. |
-| `SunSeek_Platform_Firmware_v3_1_TeamJenny_OURS/` | **OUR VERSION (2026-10-08): v3.0.7 + anti-wobble controller + bug fixes. See its `README_OURS_TeamJenny.md`. Compiled OK, not yet tested on hardware.** |
+| **`SunSeek_Platform_Firmware_v3_2_TeamSuperTem_OURS/`** | **OUR NEWEST — WORKS ON HARDWARE (2026-10-08).** v3.1 + wheel-model controller (ADCS_CTRL_MODE,WHEEL), max cmd 45, **ADCS_CONTROL_SIGN -1 (this was the real wobble cause: with +1 it parked 180 deg from target and chattered)**. Live flip: ADCS_CONTROL_SIGN,<1/-1>. |
+| `SunSeek_Platform_Firmware_v3_1_TeamSuperTem_OURS/` | **OUR VERSION (2026-10-08): v3.0.7 + anti-wobble controller + bug fixes. See its `README_OURS_TeamSuperTem.md`. Compiled OK, not yet tested on hardware.** |
 | `SunSeek_Platform_Firmware_v3_0_7/` | Official v3.0.7 (unchanged, fallback) |
 | `SunSeek_Platform_Firmware_v3_0/` | Previous version (has the same changes; leftover unfinished sun-sensor calibration code in `Config_Sensor.h` + router) |
 | `SunSeek_Platform_Firmware_v2_1/` | Old version |
@@ -33,14 +33,14 @@ A single-axis training satellite ("SunSeek") with a reaction wheel, controlled f
 2. **Magnetometer calibration commands connected** (the code existed but no command called it): `MAG_CAL_START` / `MAG_CAL_STOP`. The result applies immediately, no upload needed.
 3. **New commands:** `MAG_SET_HEADING,<deg>` (make the current direction read `<deg>`) and `MAG_REVERSE` (flip the turning direction while keeping the same zero). The calibration values are runtime variables in `Module_IMU.h`, starting from `Config_Sensor.h`.
 4. **Bluetooth disconnect fix (`System_TTC.h`).** Root cause: commands used to run inside the Bluetooth task while `loop()` sent telemetry at the same time, with no lock, which could corrupt memory or block Bluetooth. Now `onWrite()` only puts bytes into a FreeRTOS queue, and `communicationUpdate()` in `loop()` runs the commands. Fixed but **not yet confirmed on hardware.**
-5. Team name kept as `Team_Jenny` (v3.0.7 shipped with `Team_DekMUT`).
+5. Team name kept as `Team_SuperTem` (v3.0.7 shipped with `Team_DekMUT`).
 
 ## Current calibration (in `SunSeek_Platform_Firmware_v3_0_7/Config_Sensor.h`)
 ```
 MAG_OFFSET_X -215.50   MAG_OFFSET_Y -1259.00   MAG_OFFSET_Z -619.50
 MAG_SCALE_X  1.0461    MAG_SCALE_Y  0.9578     MAG_SCALE_Z  1.0
 MAG_HEADING_SIGN        -1.0
-MAG_HEADING_OFFSET_DEG  327.27   (calibrated 0° reference 247.27 + 90° − 10° added by user; set in v3_1_TeamJenny_OURS)
+MAG_HEADING_OFFSET_DEG  327.27   (calibrated 0° reference 247.27 + 90° − 10° added by user; set in v3_1_TeamSuperTem_OURS)
 GYRO_BIAS_*  0.0  (not needed — gyro zeroes itself at boot)
 IMU_BODY_RATE_AXIS Z, SIGN +1
 ```
@@ -100,7 +100,7 @@ Camera web routes: `/`, `/status`, `/images`, `/image?name=/IMG_0001.JPG`, `/str
 The old `Documents\Arduino\libraries\ESP32_BLE_Arduino` library was moved to `Documents\Arduino\libraries_disabled\` because it broke compiling against ESP32 core 3.x.
 
 ## 2026-10-08 night — WORKING
-- Satellite runs `SunSeek_Platform_Firmware_v3_2_TeamJenny_OURS` with the calibration saved in its Config files (MAG_REVERSE done; heading sign +1, gyro sign -1, control sign +1).
+- Satellite runs `SunSeek_Platform_Firmware_v3_2_TeamSuperTem_OURS` with the calibration saved in its Config files (MAG_REVERSE done; heading sign +1, gyro sign -1, control sign +1).
 - We confirmed: points to real dial angles very accurately, no wobble.
 - Heading check (dial -> reading): -60 -> 308.5 (8.5 deg off), -30 -> 333.9, 0 -> 1.1, +30 -> 31.3, +60 -> 60.6. Only the -60 side is a few degrees off.
 - Recalibrate (MAG_CAL + MAG_SET_HEADING) in the competition room, then copy the CAL_STATUS values into Config_Sensor.h.

@@ -49,7 +49,7 @@ DEADBAND = 2.0
 
 SETTINGS_FILE = Path.home() / ".sunseek_gs_lite.json"
 FIRMWARE_CONFIG_ADCS = (Path(__file__).resolve().parent.parent / "firmware"
-                        / "SunSeek_Platform_Firmware_v3_2_TeamJenny_OURS" / "Config_ADCS.h")
+                        / "SunSeek_Platform_Firmware_v3_2_TeamSuperTem_OURS" / "Config_ADCS.h")
 
 
 def wrap360(x):

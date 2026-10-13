@@ -1,4 +1,4 @@
-# SunSeek Ground Station Lite (Team Jenny)
+# SunSeek Ground Station Lite (Team SuperTem)
 
 A simpler desktop ground station we wrote for SunSeek, with a guided PD tuner and a built-in simulator.
 
@@ -16,7 +16,7 @@ Needs Python 3.10+ with PySide6, bleak, pyqtgraph and pyserial.
 - **Commands:** the same one-line ASCII protocol as the firmware (see [../docs/COMMANDS.md](../docs/COMMANDS.md)).
 - **Live plots:** angle vs target, pointing error, wheel command.
 - **Guided PD tuner:** step tests and an auto-tune helper.
-- **Save gains:** writes Kp/Kd as power-on defaults into `../firmware/SunSeek_Platform_Firmware_v3_2_TeamJenny_OURS/Config_ADCS.h`. If the file isn't found, it asks you to pick it.
+- **Save gains:** writes Kp/Kd as power-on defaults into `../firmware/SunSeek_Platform_Firmware_v3_2_TeamSuperTem_OURS/Config_ADCS.h`. If the file isn't found, it asks you to pick it.
 - **Saved settings:** in `~/.sunseek_gs_lite.json`.
 
 ## Status

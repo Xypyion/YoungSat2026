@@ -3,7 +3,7 @@
 ## 1. Systematic code review
 - **Line-by-line reading.** We read every firmware file and followed the signal path *sensor → estimator → controller → motor driver → wheel* to check units and signs.
 - **Bug list first.** We wrote the list of bugs and suspects before changing anything, and kept the original firmware untouched in its own folder.
-- **Every change marked.** Changes go into a **separate, clearly named copy** (`..._TeamJenny_OURS`), each marked `TEAM JENNY v3.x` in the code.
+- **Every change marked.** Changes go into a **separate, clearly named copy** (`..._TeamSuperTem_OURS`), each marked `TEAM SUPERTEM v3.x` in the code.
 
 ## 2. Reverse-engineering the course ground station
 The course ground station is a compiled PyInstaller app with no source code. To learn exactly which commands it sends:

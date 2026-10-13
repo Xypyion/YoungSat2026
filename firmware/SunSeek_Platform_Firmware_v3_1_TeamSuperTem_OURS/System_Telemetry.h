@@ -209,7 +209,7 @@ inline void sensorSendCalibrationStatus() {
   sendTelemetry("TM,SUN_ESTIMATOR,TEAM_FUNCTION");
 }
 
-// ---- TEAM JENNY v3.1: gyro / heading direction check -------------------------
+// ---- TEAM SUPERTEM v3.1: gyro / heading direction check -------------------------
 // Turn the spacecraft BY HAND (MANUAL mode) 45-90 deg one way during the 5 s window.
 // For PD to damp, GYRO_Z must be positive when the heading goes UP. If the signs
 // disagree, the Kd term pushes instead of brakes and the spacecraft wobbles forever.

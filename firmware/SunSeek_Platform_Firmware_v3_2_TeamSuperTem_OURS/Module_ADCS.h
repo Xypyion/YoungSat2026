@@ -46,7 +46,7 @@ static float _ctrlSign = ADCS_CONTROL_SIGN;   // v3.2: runtime, ADCS_CONTROL_SIG
 inline float adcsControlSign(){ return _ctrlSign; }
 inline bool adcsSetControlSign(float s){ if(s!=1.0f&&s!=-1.0f)return false; _ctrlSign=s; return true; }
 
-// TEAM JENNY v3.1 — anti-wobble Reaction controller (runtime tunable).
+// TEAM SUPERTEM v3.1 — anti-wobble Reaction controller (runtime tunable).
 struct ADCSCtrlParams {
   float holdEnterDeg, holdRateDps, holdExitDeg;
   int minCmd, slew;
@@ -198,7 +198,7 @@ inline void adcsUpdate(){
   if(_a.mode!=ADCS_AUTO)return;
 
   if(rwGetMode()==RW_MODE_REACTION){
-    // ---- TEAM JENNY v3.1 anti-wobble Reaction controller ----
+    // ---- TEAM SUPERTEM v3.1 anti-wobble Reaction controller ----
     const float dt=ADCS_CONTROL_PERIOD_MS*0.001f;
     float ae=fabsf(_a.error);
 

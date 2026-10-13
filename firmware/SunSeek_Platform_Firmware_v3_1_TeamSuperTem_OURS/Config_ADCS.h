@@ -18,10 +18,10 @@
 
 /*
   ---------------------------------------------------------------------------
-  TEAM JENNY v3.1 (OUR VERSION) — anti-wobble REACTION controller
+  TEAM SUPERTEM v3.1 (OUR VERSION) — anti-wobble REACTION controller
   ---------------------------------------------------------------------------
   These are only the power-up defaults. Every value can be changed live from the
-  Ground Station command box (see README_OURS_TeamJenny.md), no re-upload needed.
+  Ground Station command box (see README_OURS_TeamSuperTem.md), no re-upload needed.
   Momentum strategy is NOT affected by anything below.
 
   Why the official v3.0.7 wobbled forever:

@@ -1,7 +1,19 @@
-# TEAM JENNY — OUR VERSION v3.1
+# TEAM SUPERTEM — OUR VERSION v3.2
+
+## NEW in v3.2 (2026-10-08): wheel-model controller (the wobble fix)
+v3.1 is kept unchanged in its own folder.
+- **The driver (TB6612) makes 0 % = coast but any small % = mostly BRAKE.** The PD kept switching between the two, which kicked the satellite. The PD also treated the command as a push, but it is really a wheel *speed*.
+- **New default `ADCS_CTRL_MODE,WHEEL`:** it estimates the wheel speed (from the T01 timing: about 11 s to spin up, about 6 s to stop) and commands *wheel speed + push*. When holding, the wheel keeps its speed, so there is no kick.
+- **Max wheel command 80 → 45 %** (T01: strong vibration above 45 %). Change it live with `ADCS_MAX_CMD,<%>`.
+- **Tune the wheel model live:** `ADCS_WHEEL_TAU,<drive_s>,<coast_s>` (default 3, 2).
+- **Old behaviour:** `ADCS_CTRL_MODE,PD`. The log line `TM,ADCS_HOLD,...` now also shows `ADCS_WHEEL_EST`.
+
+---
+(v3.1 notes below)
+
 
 **This is our own firmware.** It is based on the official `SunSeek_Platform_Firmware_v3_0_7`, which is left untouched in its own folder.
-On boot the Serial Monitor prints: `SUNSEEK PLATFORM v3.1-TeamJenny (OUR VERSION, based on official v3.0.7)`.
+On boot the Serial Monitor prints: `SUNSEEK PLATFORM v3.1-TeamSuperTem (OUR VERSION, based on official v3.0.7)`.
 
 Works with Ground Station v1.10. All official commands and telemetry are unchanged; we only **added** things.
 The Momentum strategy is not changed.
