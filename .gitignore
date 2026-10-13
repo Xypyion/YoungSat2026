@@ -1,0 +1,9 @@
+build/
+*.pyc
+__pycache__/
+*.elf
+*.bin
+.vscode/
+.DS_Store
+Thumbs.db
+desktop.ini
